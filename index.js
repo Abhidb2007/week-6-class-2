@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require("jsonwebtoken");
 const app = express();
 
-const post("/signup",function(req, res){
+app. post("/signup",function(req, res){
 
 
 })
