@@ -66,6 +66,17 @@ app.get("/me", function (req, res) {
   }
 });
 
+app.get("/todo",function(req, res){
+  const token = req.headers.token;
+  if(decodedData.username ){
+  }else{
+    res.json({
+      message: "you are not logged in"
+    })
+  }
+  
+})
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
