@@ -44,6 +44,19 @@ app.post("/signin", function (req, res) {
   })
 });
 
+function auth(req, res, next){
+  const token = req.headers.token;
+  const decodedData = jwt.verify(token,JWT_SECRET);
+  if(decodedData){
+    next();
+  }else{
+    res.json({
+      message: "You are not logged in"
+    })
+
+  }
+  
+}
 // PROTECTED Route - /me
 app.get("/me", function (req, res) {
   const token = req.headers.token;
