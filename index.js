@@ -37,7 +37,11 @@ app.post("/signin", function (req, res) {
   }
 
   const token = jwt.sign({ username: username }, JWT_SECRET);
-  res.json({ token });
+  res.header("jwt",token);
+  res.header("random","harkirat");
+  res.json({
+    token:token
+  })
 });
 
 // PROTECTED Route - /me
