@@ -58,7 +58,7 @@ function auth(req, res, next){
   
 }
 // PROTECTED Route - /me
-app.get("/me", function (req, res) {
+app.get("/me", auth, function (req, res) {
   const token = req.headers.token;
 
   try {
