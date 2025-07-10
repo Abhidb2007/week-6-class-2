@@ -45,26 +45,11 @@ app.get("/signup", function(req, res){
 
 })
 
-
-// middleware/auth.js
-const jwt = require("jsonwebtoken");
-
-const JWT_SECRET = "my-secret-key"; // should be in .env in real apps
-
-function authMiddleware(req, res, next) {
-  const token = req.headers.token;
-
-  if (!token) {
-    return res.status(401).json({ message: "Access Denied. No Token Provided." });
-  }
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded; // attach decoded user to request
-    next(); // go to next middleware or route
-  } catch (err) {
-    res.status(400).json({ message: "Invalid Token" });
-  }
+function logger(req, res,next){
+    console.log('&{req.method} ${req.url}')
+    next();
 }
+module.exports = logger;
 
-module.exports = authMiddleware;
+
+
