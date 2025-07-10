@@ -45,11 +45,15 @@ app.get("/signup", function(req, res){
 
 })
 
-function logger(req, res,next){
-    console.log('&{req.method} ${req.url}')
-    next();
+function logger(req, res, next) {
+  console.log("Logged");
+  next();
 }
-module.exports = logger;
+
+
+
+
+
 
 
 
