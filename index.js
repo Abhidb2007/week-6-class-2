@@ -45,9 +45,6 @@ app.get("/signup", function(req, res){
 
 })
 
-function logger(req, res, next) {
-  console.log("Logged");
-  next();
 }
 
 
