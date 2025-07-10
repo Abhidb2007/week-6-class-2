@@ -63,6 +63,7 @@ app.get("/me", function(req, res){
 
 
 })
+app.listen(3000);
 
 
 
