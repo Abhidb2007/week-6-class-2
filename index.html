@@ -5,19 +5,16 @@
     </head>   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.1/axios.min.js"></script> 
     <script>
+        async function signup(){
         async function signin(){
-            const username = document.getElementById
-            ("signin-username").value;
-            const password = document.getElementById
-            ("signin-password").value;
-            const response = await axios.post("http://localhost:3000/sigin",{
-                username: username,
-                password: password
-            });
-
-            localStorage.setItem("token",response.data.token);
-            alert("you are signed in");
-
+        async function getUserInformation(){
+            axios.get("http://localhost:3000/me",{
+                headers:{
+                    token:localStorage.getItem("token")
+                }
+            })
+        }
+        }    
         }
     </script>
         <body>            
