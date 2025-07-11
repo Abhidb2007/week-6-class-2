@@ -71,8 +71,8 @@ app.get("/me", auth, function (req, res) {
     }
 
     res.json({
-      username: foundUser.username,
-      password: foundUser.password,
+      username:username,
+      password:password,
     });
   } catch (err) {
     res.status(401).json({ message: "Invalid token" });
