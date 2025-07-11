@@ -1,12 +1,29 @@
 <html>
     <head>
+        
         <title>auth website</title>
-        <body>
+    </head>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.1/axios.min.js"></script> 
+    <script>
+        async function signup(){
+            const username = document.getElementById
+            ("signup-username").value;
+            const password = document.getElementById
+            ("signup-password").value;
+            axios.post("http://localhost:3000/signup",{
+                username: username,
+                password: password
+            });
+            alert("you are signed in");
+
+        }
+    </script>
+        <body>            
             <div>
                 Signup
-                <input type="text" name="username"
+                <input type="signup-username" name="username"
                 placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
+                <input type="signup-password" name="password" placeholder="Password">
                 <button onclick= "signup()">Submit</button>
 
 
@@ -29,5 +46,5 @@
 
         </body>
 
-    </head>
+    
 </html>
