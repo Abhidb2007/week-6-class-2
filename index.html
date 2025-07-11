@@ -9,18 +9,16 @@
         async function signin(){
         async function getUserInformation(){
             const response = await axios.get("http://localhost:3000/signin",{
-                headers:{
+                headers: {
                     token:localStorage.getItem("token")
                 }
             })
             document.getElementById("information").innerHTML = "Username:" + response.data.username + "password: " + response.data.password
         }
-        }
-        }
-        getUserInformation();
-
-            
+    }
+} 
         
+     getUserInformation();
     </script>
         <body>            
             <div>
@@ -52,3 +50,6 @@
 
     
 </html>
+            
+        
+    
