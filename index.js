@@ -1,53 +1,44 @@
-<html>
-    <head>
-        
-        <title>auth website</title>
-    </head>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.1/axios.min.js"></script> 
-    <script>
-        async function signup(){
-        async function signin(){
-        async function getUserInformation(){
-            axios.get("http://localhost:3000/me",{
-                headers:{
-                    token:localStorage.getItem("token")
-                }
-            })
+const express = require("express");
+const jwt = require(jsonwebtoken);
+
+const app =express();
+
+const users=[];
+app.post("/signup",function(req, res){
+    const username = req.body.username;
+    const password = req.body.password;
+    const push=({
+        username : username,
+        password : password
+    })
+    res.json({
+        message:"you are signed in"
+    })
+})
+app.post("/signin",function(req, res){
+    const username = req.body.username;
+    const password = req.body.password;
+    let foundUser = null;
+
+    for(let i=0; i<users.length; i++){
+        if(users[i].username===username && users[i].password===password){
+
         }
-        }
-        }
-        getUserInformation();
+    }
+    if(!foundUser){
+        res.json({
+            message:"Credentials incorrect"
+        })
+        return
+    }else{
+        const token = jwt.sign({
+            username
+        },JWT_SECRET);
+    }
+    res.json({
+        tooken:token
+    })
 
-            
-        
-    </script>
-        <body>            
-            <div>
-                Signup
-                <input id="signup-username"  type="text" name="username"
-                placeholder="Username">
-                <input id="signup-password" type="password" name="password" placeholder="Password">
-                <button onclick= "signup()">Submit</button>
+})
 
-
-            </div>
-            <div>
-                Signin 
-                <input id="signin-username" type="text" name="username" placeholder="username">
-                <input id="signin-password" type="password" name="password" placeholder="Password">
-                
-                <button onclick="signin()">Submit</button>
-            </div>
-            <div>
-                User information:
-                <div id="information"></div>
-
-            </div>
-            <div>
-                <button onclick="logout()">Logout</botton>
-            </div>
-
-        </body>
-
-    
-</html>
+app.listen(3000);
