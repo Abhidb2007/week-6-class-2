@@ -8,12 +8,12 @@
         async function signup(){
         async function signin(){
         async function getUserInformation(){
-            const response = await axios.get("http://localhost:6000/signin",{
+            const response = await axios.get("http://localhost:3000/signin",{
                 headers: {
                     token:localStorage.getItem("token")
                 }
             })
-            document.getElementById("information").innerHTML = "Username" + response.data.username + "password: " + response.data.password
+            document.getElementById("information").innerHTML = "Username" "password"+ response.data.username + "password: " + response.data.password
         }
     }
 } 
