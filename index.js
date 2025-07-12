@@ -40,5 +40,8 @@ app.post("/signin",function(req, res){
     })
 
 })
+app.post("/me",function(req, res){
+
+})
 
 app.listen(3000);
