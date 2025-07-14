@@ -1,55 +1,22 @@
-<html>
-    <head>
-        
-        <title>auth website</title>
-    </head>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.1/axios.min.js"></script> 
-    <script>
-        async function signup(){
-        async function signin(){
-        async function getUserInformation(){
-            const response = await axios.get("http://localhost:3000/signin",{
-                headers: {
-                    token:localStorage.getItem("token")
-                }
-            })
-            document.getElementById("information").innerHTML = "Username" + response.data.username + "password: " + response.data.password
-        }
-    }
-} 
-        
-     getUserInformation();
-    </script>
-        <body>            
-            <div>
-                Signup
-                <input id="signup-username"  type="text" name="username"
-                placeholder="Username">
-                <input id="signup-password" type="password" name="password" placeholder="Password">
-                <button onclick= "signup()">Submit</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TO-DO List App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="todo-app">
+      <h2>TO-DO List <img src="icon.png" alt="icon" width="24" height="24"></h2>
+      <div class="input-box">
+        <input type="text" id="input-box" placeholder="Enter a task">
+        <button onclick="addTask()">Add</button>
+      </div>
+      <ul id="list-container"></ul>
+    </div>
+  </div>
 
-
-            </div>
-            <div>
-                Signin 
-                <input id="signin-username" type="text" name="username" placeholder="username">
-                <input id="signin-password" type="password" name="password" placeholder="Password">
-                
-                <button onclick="signin()">Submit</button>
-            </div>
-            <div>
-                User information:
-                <div id="information"></div>
-
-            </div>
-            <div>
-                <button onclick="logout()">Logout</botton>
-            </div>
-
-        </body>
-
-    
+  <script src="script.js"></script>
+</body>
 </html>
-            
-        
-    
